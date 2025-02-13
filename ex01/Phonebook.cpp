@@ -27,7 +27,7 @@ void	Phonebook::searchContact(void)
 
 	std::cout << std::endl << "Enter Index for Full Details: ";
 	std::getline(std::cin, input);
-	if (input.length() == 1 && std::isdigit(input[0]))
+	if (input.length() == 1 && std::isdigit(input[0]) && input[0] != '0')
 	{
 		index = input[0] - '0';
 		if (index >= 1 && index <= 8)
@@ -35,10 +35,10 @@ void	Phonebook::searchContact(void)
 			if (!contacts[index - 1].isEmpty())
 				contacts[index - 1].displayFull();
 			else
-				std::cout << std::endl << "No Contact Found at this Index!!!" << std::endl;
+				std::cout << std::endl << "[No Contact Found at this Index]" << std::endl;
 		}
 
 	}
 	else
-		std::cout << std::endl << "Invalid Index!!!" << std::endl;
+		std::cout << std::endl << "[Invalid Index]" << std::endl;
 }

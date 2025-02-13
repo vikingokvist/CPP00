@@ -20,13 +20,13 @@ bool	Contact::setContact(void)
 	std::getline(std::cin, darkestSecret);
 	if (darkestSecret.empty()) return (unsetContact());
 
-	std::cout << std::endl << "Contact Added to the Phonebook!!!" << std::endl;
+	std::cout << std::endl << "[Contact Added to the Phonebook]" << std::endl;
 	return (true);
 }
 
 bool	Contact::unsetContact(void)
 {
-	std::cout << std::endl << "Fields Cannot be Empty!!" << std::endl;
+	std::cout << std::endl << "[Fields Cannot be Empty]" << std::endl;
 	firstName = "";
 	lastName = "";
 	nickName = "";
@@ -44,7 +44,7 @@ void	Contact::displayShort(int index)
 		<< std::endl;
 }
 
-void	Contact::displayFull()
+void	Contact::displayFull(void)
 {
 	std::cout << std::endl;
 	std::cout << "Firstname: " << firstName << std::endl;
@@ -52,7 +52,6 @@ void	Contact::displayFull()
 	std::cout << "Nickname: " << nickName << std::endl;
 	std::cout << "Phone Number: " << phoneNumber << std::endl;
 	std::cout << "Darkest Secret: " << darkestSecret << std::endl;
-	std::cout << std::endl;
 }
 
 bool	Contact::isEmpty()

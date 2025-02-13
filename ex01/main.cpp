@@ -8,14 +8,15 @@ int		main(void)
 
 	while (true)
 	{
-		std::cout << std::endl <<"Enter Command: (ADD, SEARCH, EXIT): ";
+		std::cout << std::endl <<"(ADD, SEARCH, EXIT) Enter Command: ";
 		if (!std::getline(std::cin, command))
 		{
-			std::cout << std::endl <<"Exiting Phonebook" << std::endl;
+			std::cout << std::endl <<"[Exiting Phonebook]" << std::endl;
 			break ;
 		}
 		if (command.empty())
 			continue ;
+		std::cout << std::endl;
 		if (command == "ADD")
 		{
 			phoneBook.addContact();
@@ -26,11 +27,11 @@ int		main(void)
 		}
 		else if (command == "EXIT")
 		{
-			std::cout << "Exiting Phonebook" << std::endl;
+			std::cout << "[Exiting Phonebook]" << std::endl;
 			break ;
 		}
 		else
-			std::cout << "Command not found" << std::endl;
+			std::cout << "[Command not found]" << std::endl;
 	}
 	return (0);
 }
