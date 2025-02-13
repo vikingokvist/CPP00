@@ -5,10 +5,14 @@
 
 class Phonebook
 {
-	public:
+	private:
 		Contact contacts[8];
 		int		index;
 
+	public:
+		Phonebook(void);
+		void	addContact(void);
+		void	searchContact(void);
 };
 
 #endif
