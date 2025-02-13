@@ -15,7 +15,8 @@ class Contact
 		std::string darkestSecret;
 	
 	public:
-		void	setContact(void);
+		bool	setContact(void);
+		bool	unsetContact(void);
 		void	displayShort(int index);
 		void	displayFull(void);
 		bool	isEmpty(void);

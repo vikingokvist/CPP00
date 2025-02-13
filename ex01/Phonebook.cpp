@@ -1,15 +1,13 @@
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook(void)
-{
-	index = 1;
-}
+Phonebook::Phonebook(void) : index(1) {}
 
 void	Phonebook::addContact(void)
 {
 	if (index >= 9)
 		index = 1;
-	contacts[index - 1].setContact();
+	if (!contacts[index - 1].setContact())
+		return ;
 	index++;
 }
 
@@ -24,33 +22,23 @@ void	Phonebook::searchContact(void)
 	for (int i = 0; i < 8; i++)
 		contacts[i].displayShort(i);
 
-	int			index;
+	int			index = -1;
 	std::string input;
 
 	std::cout << std::endl << "Enter Index for Full Details: ";
-	std::cin.ignore();
-	if (!(std::getline(std::cin, input)))
+	std::getline(std::cin, input);
+	if (input.length() == 1 && std::isdigit(input[0]))
 	{
-		std::cout << std::endl << "Invalid Index" << std::endl;
-		return ;
-	}
-	for (int i = 0; input[i]; i++)
-	{
-		if (!std::isdigit(input[i]))
+		index = input[0] - '0';
+		if (index >= 1 && index <= 8)
 		{
-				std::cout << std::endl << "Invalid Index" << std::endl;
-				return ;
+			if (!contacts[index - 1].isEmpty())
+				contacts[index - 1].displayFull();
+			else
+				std::cout << std::endl << "No Contact Found at this Index!!!" << std::endl;
 		}
-	}
-	index = input[0];
-	if (index >= 1 && index <= 8)
-	{
-		if (!contacts[index - 1].isEmpty())
-			contacts[index - 1].displayFull();
-		else
-			std::cout << std::endl << "No Contact Found at this Index!!!" << std::endl << std::endl;
+
 	}
 	else
-		std::cout << std::endl << "Invalid Index" << std::endl;
-
+		std::cout << std::endl << "Invalid Index!!!" << std::endl;
 }

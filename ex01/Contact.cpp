@@ -1,21 +1,38 @@
 #include "Contact.hpp"
 
-void	Contact::setContact()
+bool	Contact::setContact(void)
 {
 	std::cout << std::endl;
 
 	std::cout << "Enter First Name: ";
 	std::getline(std::cin, firstName);
+	if (firstName.empty()) return (unsetContact());
 	std::cout << "Enter Last Name: ";
 	std::getline(std::cin, lastName);
+	if (lastName.empty()) return (unsetContact());
 	std::cout << "Enter Nickname: ";
 	std::getline(std::cin, nickName);
+	if (nickName.empty()) return (unsetContact());
 	std::cout << "Enter Phone Number: ";
 	std::getline(std::cin, phoneNumber);
+	if (phoneNumber.empty()) return (unsetContact());
 	std::cout << "Enter Darkest Secret: ";
 	std::getline(std::cin, darkestSecret);
+	if (darkestSecret.empty()) return (unsetContact());
 
-	std::cout << std::endl << "Contact Added to the Phonebook" << std::endl;
+	std::cout << std::endl << "Contact Added to the Phonebook!!!" << std::endl;
+	return (true);
+}
+
+bool	Contact::unsetContact(void)
+{
+	std::cout << std::endl << "Fields Cannot be Empty!!" << std::endl;
+	firstName = "";
+	lastName = "";
+	nickName = "";
+	phoneNumber = "";
+	darkestSecret = "";
+	return (false);
 }
 
 void	Contact::displayShort(int index)

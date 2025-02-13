@@ -9,11 +9,13 @@ int		main(void)
 	while (true)
 	{
 		std::cout << std::endl <<"Enter Command: (ADD, SEARCH, EXIT): ";
-		if (!(std::getline(std::cin, command)))
+		if (!std::getline(std::cin, command))
 		{
 			std::cout << std::endl <<"Exiting Phonebook" << std::endl;
 			break ;
 		}
+		if (command.empty())
+			continue ;
 		if (command == "ADD")
 		{
 			phoneBook.addContact();
