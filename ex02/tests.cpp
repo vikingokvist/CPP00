@@ -14,29 +14,29 @@
 
 int		main( void ) {
 
-	typedef std::vector<Account::t>							  accounts_t; 			// array of classes
-	typedef std::vector<int>								  ints_t;	  			// array of ints
-	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;  			// IDK
+	typedef std::vector<Account::t>							  accounts_t;
+	typedef std::vector<int>								  ints_t;
+	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
 
-	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 }; // Non modifiable array of ints
-	size_t const			amounts_size( sizeof(amounts) / sizeof(int) );			 // Int array len
-	accounts_t				accounts( amounts, amounts + amounts_size );			 // malloc the array ??
-	accounts_t::iterator	acc_begin	= accounts.begin();							 // starting from
-	accounts_t::iterator	acc_end		= accounts.end();							 // ending from
-																					 // ACOUNT START
+	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };
+	size_t const			amounts_size( sizeof(amounts) / sizeof(int) );
+	accounts_t				accounts( amounts, amounts + amounts_size );
+	accounts_t::iterator	acc_begin	= accounts.begin();	
+	accounts_t::iterator	acc_end		= accounts.end();
+
 
 	int	const			d[]			= { 5, 765, 564, 2, 87, 23, 9, 20 };
 	size_t const		d_size( sizeof(d) / sizeof(int) );
 	ints_t				deposits( d, d + d_size );
 	ints_t::iterator	dep_begin	= deposits.begin();
 	ints_t::iterator	dep_end		= deposits.end();
-																					// DEPOSIT
+
 	int	const			w[]			= { 321, 34, 657, 4, 76, 275, 657, 7654 };
 	size_t const		w_size( sizeof(w) / sizeof(int) );
 	ints_t				withdrawals( w, w + w_size );
 	ints_t::iterator	wit_begin	= withdrawals.begin();
 	ints_t::iterator	wit_end		= withdrawals.end();
-																					// WITHDRAW
+
 	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
