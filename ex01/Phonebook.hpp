@@ -10,7 +10,8 @@ class Phonebook
 		int		index;
 
 	public:
-		Phonebook(void);
+		Phonebook();
+		~Phonebook();
 		void	addContact(void);
 		void	searchContact(void);
 };

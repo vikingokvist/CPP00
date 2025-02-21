@@ -1,5 +1,9 @@
 #include "Contact.hpp"
 
+Contact::Contact() {}
+
+Contact::~Contact() {}
+
 bool	Contact::setContact(void)
 {
 	std::cout << std::endl;

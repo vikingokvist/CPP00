@@ -1,6 +1,8 @@
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook(void) : index(1) {}
+Phonebook::Phonebook() : index(1) {}
+
+Phonebook::~Phonebook() {}
 
 void	Phonebook::addContact(void)
 {
@@ -37,6 +39,8 @@ void	Phonebook::searchContact(void)
 			else
 				std::cout << std::endl << "[No Contact Found at this Index]" << std::endl;
 		}
+		else
+			std::cout << std::endl << "[Invalid Index]" << std::endl;
 
 	}
 	else
